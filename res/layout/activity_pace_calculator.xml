@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow>
+
+            <Button
+                android:id="@id/btnResetKms"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetKms"
+                android:text="Reset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Kms" />
+
+            <EditText
+                android:id="@id/txtKms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@id/btnResetTemps"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetTemps"
+                android:text="Reset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Temps" />
+
+            <EditText
+                android:id="@id/txtTemps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="time" >
+
+                <requestFocus />
+            </EditText>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@id/btnResetAllure"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetAllure"
+                android:text="Reset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Allure" />
+
+            <EditText
+                android:id="@id/txtAllure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="time" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@id/btnResetVitesse"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetVitesse"
+                android:text="Reset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:inputType="numberDecimal"
+                android:text="Vitesse" />
+
+            <EditText
+                android:id="@id/txtVitesse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+        <View
+            android:layout_height="2.0dip"
+            android:background="#ffff0000" />
+
+        <TableRow>
+
+            <Button
+                android:id="@id/backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="closeAppli"
+                android:text="Back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text=" " />
+
+            <Button
+                android:id="@id/calcul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startCalcul"
+                android:text="Calcul" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/helperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:text="Format temps : hh:mm:ss" />
+
+    </TableLayout>
+
+</RelativeLayout>

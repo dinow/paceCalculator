@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="backbutton" type="id"/>
+    <item name="btnResetKms" type="id" />
+    <item name="txtKms" type="id" />
+    <item name="btnResetTemps" type="id" />
+    <item name="txtTemps" type="id" />
+    <item name="calcul" type="id" />
+    <item name="txtAllure" type="id" />
+    <item name="txtVitesse" type="id" />
+    <item name="btnResetAllure" type="id" />
+    <item name="btnResetVitesse" type="id" />
+</resources>
