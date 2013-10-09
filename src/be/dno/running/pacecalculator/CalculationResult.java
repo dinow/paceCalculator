@@ -1,40 +1,56 @@
 package be.dno.running.pacecalculator;
 
 public class CalculationResult {
-	private String txtKms = "";
-	private String txtAllure = "";
-	private String txtTemps = "";
-	private String txtVitesse = "";
-	public String getTxtKms() {
-		return txtKms;
+	private String kms = "";
+	private String allure = "";
+	private String temps = "";
+	private String vitesse = "";
+	private String vma;
+	private String pourcVMA;
+	public String getKms() {
+		return kms;
 	}
-	public void setTxtKms(String txtKms) {
-		this.txtKms = txtKms;
+	public void setKms(String kms) {
+		this.kms = kms;
 	}
-	public String getTxtAllure() {
-		return txtAllure;
+	public String getAllure() {
+		return allure;
 	}
-	public void setTxtAllure(String txtAllure) {
-		this.txtAllure = txtAllure;
+	public void setAllure(String allure) {
+		this.allure = allure;
 	}
-	public String getTxtTemps() {
-		return txtTemps;
+	public String getTemps() {
+		return temps;
 	}
-	public void setTxtTemps(String txtTemps) {
-		this.txtTemps = txtTemps;
+	public void setTemps(String temps) {
+		this.temps = temps;
 	}
-	public String getTxtVitesse() {
-		return txtVitesse;
+	public String getVitesse() {
+		return vitesse;
 	}
-	public void setTxtVitesse(String txtVitesse) {
-		this.txtVitesse = txtVitesse;
+	public void setVitesse(String vitesse) {
+		this.vitesse = vitesse;
+	}
+	public String getVma() {
+		return vma;
+	}
+	public void setVma(String vma) {
+		this.vma = vma;
+	}
+	public String getPourcVMA() {
+		return pourcVMA;
+	}
+	public void setPourcVMA(String pourcVMA) {
+		this.pourcVMA = pourcVMA;
 	}
 	@Override
 	public String toString() {
-		return "CalculationResult [txtKms=" + txtKms + ", txtAllure="
-				+ txtAllure + ", txtTemps=" + txtTemps + ", txtVitesse="
-				+ txtVitesse + "]";
+		return "CalculationResult [kms=" + kms + ", allure=" + allure
+				+ ", temps=" + temps + ", vitesse=" + vitesse + ", vma=" + vma
+				+ ", pourcVMA=" + pourcVMA + "]";
 	}
+	
+	
 	
 	
 }
