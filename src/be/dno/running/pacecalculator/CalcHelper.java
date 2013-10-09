@@ -2,10 +2,11 @@ package be.dno.running.pacecalculator;
 
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 
 public class CalcHelper {
-
+	private static DecimalFormat df = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance());
 	/**
 	 * 
 	 * @param paramInt
@@ -24,10 +25,15 @@ public class CalcHelper {
 	 * @return
 	 */
 	private static String toDoubleDecimal(double paramInt){
-		NumberFormat nf = new DecimalFormat() ;
-		nf.setMaximumFractionDigits(2); 
-		nf.setMinimumFractionDigits(2); 
-		return nf.format(paramInt);
+		return df.format(paramInt);
+	}
+	
+	private static Double toDouble(String input){
+		try {
+			return df.parse(input).doubleValue();
+		} catch (ParseException e) {
+			return Double.valueOf(input);
+		}
 	}
 
 	/**
@@ -40,8 +46,8 @@ public class CalcHelper {
 		//Check if vma and % vma is filled in
 		if(!crInput.getVma().isEmpty()){
 			if(!crInput.getPourcVMA().isEmpty()){
-				double vma = Double.valueOf(crInput.getVma());
-				double pVMA = Double.valueOf(crInput.getPourcVMA());
+				double vma = toDouble(crInput.getVma());
+				double pVMA = toDouble(crInput.getPourcVMA());
 				if (crInput.getVitesse().isEmpty()){
 					double speed = vma * (pVMA/100);
 					crInput.setVitesse(toDoubleDecimal(speed));
@@ -50,10 +56,10 @@ public class CalcHelper {
 		}
 		if(!crInput.getKms().isEmpty()){//on a les kms
 			crOutput.setKms(crInput.getKms());
-			double kms = Double.valueOf(crInput.getKms());
+			double kms = toDouble(crInput.getKms());
 
 			if(!crInput.getVitesse().isEmpty()){//Calcul du temps à mettre pour cette distance à cette vitesse
-				double speed = Double.valueOf(crInput.getVitesse());
+				double speed = toDouble(crInput.getVitesse());
 				double secondsForOneKilo = 3600 / speed;
 				double totalSecondForDistance = kms * secondsForOneKilo;
 				crOutput.setTemps(toTime(totalSecondForDistance));
@@ -74,7 +80,7 @@ public class CalcHelper {
 			crOutput.setTemps(crInput.getTemps());
 			double totalTime = getTotSecs(crInput.getTemps());
 			if(!crInput.getVitesse().isEmpty()){
-				double speed = Double.valueOf(crInput.getVitesse());
+				double speed = toDouble(crInput.getVitesse());
 				double secondsForOneKilo = 3600 / speed;
 				crOutput.setKms(toDoubleDecimal(totalTime/secondsForOneKilo));
 			}
@@ -91,14 +97,14 @@ public class CalcHelper {
 		}
 		if(!crInput.getVitesse().isEmpty()){//on a la vitesse
 			crOutput.setVitesse(crInput.getVitesse());
-			double speed = Double.valueOf(crInput.getVitesse());
+			double speed = toDouble(crInput.getVitesse());
 			double secondsForOneKilo = 3600 / speed;
 			crOutput.setAllure(toTime(secondsForOneKilo));
 		}
 		if(!crInput.getVma().isEmpty()){//calcul % VMA
 			if (!crOutput.getVitesse().isEmpty()){
-				double vma = Double.valueOf(crInput.getVma());
-				double speed = Double.valueOf(crOutput.getVitesse());
+				double vma = toDouble(crInput.getVma());
+				double speed = toDouble(crOutput.getVitesse());
 				double pourcVMA = (speed / vma)*100;
 				crOutput.setPourcVMA(toDoubleDecimal(pourcVMA));
 			}
