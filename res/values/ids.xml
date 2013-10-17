@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="backbutton" type="id"/>
-    <item name="btnResetKms" type="id" />
-    <item name="txtKms" type="id" />
-    <item name="btnResetTemps" type="id" />
-    <item name="txtTemps" type="id" />
-    <item name="calcul" type="id" />
-    <item name="txtAllure" type="id" />
-    <item name="txtVitesse" type="id" />
-    <item name="btnResetAllure" type="id" />
-    <item name="btnResetVitesse" type="id" />
+    <item name="pcbackbutton" type="id"/>
+    <item name="pcbtnresetkms" type="id" />
+    <item name="pctxtkms" type="id" />
+    <item name="pcbtnresettemps" type="id" />
+    <item name="pctxttemps" type="id" />
+    <item name="pccalcul" type="id" />
+    <item name="pctxtallure" type="id" />
+    <item name="pctxtvitesse" type="id" />
+    <item name="pcbtnresetallure" type="id" />
+    <item name="pcbtnresetvitesse" type="id" />
 </resources>

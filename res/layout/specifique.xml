@@ -4,15 +4,126 @@
   <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
+	<TableRow android:layout_width="fill_parent" >
+            <TextView
+                android:layout_span="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Specifique" />
+       </TableRow>
+       <TableRow android:layout_width="fill_parent" >
 
-        <TableRow>
+            <Button
+                android:id="@+id/specbtnresetvma"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetVMA"
+                android:text="Reset" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="specific" />
+                android:text="VMA" />
 
-         
+            <EditText
+                android:id="@+id/spectxtvma"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" 
+                android:width="100px"/>
+        </TableRow>
+        
+       <TableRow android:layout_width="fill_parent">
+           <Spinner
+            android:layout_span="3"
+	        android:id="@+id/specdistdropdown"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:entries="@array/specifique_distances" />
+       </TableRow>
+       <TableRow android:layout_width="fill_parent">
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx%" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx%" />
+       </TableRow>
+       <TableRow android:layout_width="fill_parent">
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Temps" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx:xx" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx:xx" />
+       </TableRow>
+       <TableRow android:layout_width="fill_parent">
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Km/h" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx" />
+       </TableRow>
+       <TableRow android:layout_width="fill_parent">
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="min/km" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx:xx" />
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="xx:xx" />
+       </TableRow>
+       <View
+            android:layout_height="2.0dip"
+            android:background="#ffff0000" />
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/specbackbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="closeAppli"
+                android:text="Back" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>

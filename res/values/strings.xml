@@ -3,6 +3,45 @@
 
     <string name="app_name">paceCalculator</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+  
+   <string-array name="vma_distances">
+        <item>30/30</item>
+        <item>200m</item>
+        <item>300m</item>
+        <item>400m</item>
+        <item>500m</item>
+        <item>600m</item>
+        <item>800m</item>
+        <item>1000m</item>
+        <item>Endurance</item>
+    </string-array>
+    
+   <string-array name="specifique_distances">
+        <item>800</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>20000</item>
+        <item>21100</item>
+        <item>42195</item>
+    </string-array>
+    
+    <string-array name="previsions_distances">
+        <item>800</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>20000</item>
+        <item>21100</item>
+        <item>42195</item>
+        <item>Endurance</item>
+    </string-array>
+    
 
 </resources>

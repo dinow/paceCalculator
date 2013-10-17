@@ -19,32 +19,58 @@ public class PaceCalculator extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pace_calculator);
-		
-
         MyPagerAdapter adapter = new MyPagerAdapter();
         ViewPager myPager = (ViewPager) findViewById(R.id.mypanelpager);
         myPager.setAdapter(adapter);
         myPager.setCurrentItem(0);
-     
-		
 	}
 	
-	private void loadVMACalc(){
-		TextView helperText = 	(TextView)findViewById(R.id.helperText);
-		EditText etVMA = 		(EditText)findViewById(R.id.txtVMA);
-		try{ 
-			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-			etVMA.setText(sharedPref.getString("vma", ""));
-		}catch(Exception ex){
-			helperText.setText(ex.getMessage());
-		}
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.pace_calculator, menu);
 		return true;
 	}
+	
+	
+	/**
+	 * Persistance VMA
+	 * @return
+	 */
+	private String getVMA(){
+		try{ 
+			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+			return sharedPref.getString("vma", "");
+		}catch(Exception ex){
+			return "";
+		}
+	}
+	
+	/**
+	 * Persistance VMA
+	 * @param vma
+	 */
+	private void saveVMA(String vma){
+		try{ 
+			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = sharedPref.edit();
+			editor.putString("vma", vma);
+			editor.commit();
+		}catch(Exception ex){
+			
+		}
+	}
+	
+	/**
+	 * USed in the pace_calc.xml
+	 */
+	private void loadVMA(int id){
+		if (id != -1){
+			EditText etVMA = (EditText)findViewById(id);
+			etVMA.setText(getVMA());
+		}
+	}
+
+	
 
 	/**
 	 * To close the application
@@ -60,14 +86,14 @@ public class PaceCalculator extends Activity {
 	 */
 	public void startCalcul(View paramView){
 		//Get ediatables fields
-		EditText etKms = 		(EditText)findViewById(R.id.txtKms);
-		EditText etAllure = 	(EditText)findViewById(R.id.txtAllure);
-		EditText etTemps = 		(EditText)findViewById(R.id.txtTemps);
-		EditText etVitesse = 	(EditText)findViewById(R.id.txtVitesse);
-		EditText etPourcVMA = 	(EditText)findViewById(R.id.txtPourcVMA);
-		EditText etVMA = 		(EditText)findViewById(R.id.txtVMA);
+		EditText etKms = 		(EditText)findViewById(R.id.pctxtkms);
+		EditText etAllure = 	(EditText)findViewById(R.id.pctxtallure);
+		EditText etTemps = 		(EditText)findViewById(R.id.pctxttemps);
+		EditText etVitesse = 	(EditText)findViewById(R.id.pctxtvitesse);
+		EditText etPourcVMA = 	(EditText)findViewById(R.id.pctxtpourcvma);
+		EditText etVMA = 		(EditText)findViewById(R.id.pctxtvma);
 		
-		TextView helperText = 	(TextView)findViewById(R.id.helperText);
+		TextView helperText = 	(TextView)findViewById(R.id.pctxthelper);
 		
 		//Get values
 		String txtKms = 		etKms.getText().toString();
@@ -87,15 +113,7 @@ public class PaceCalculator extends Activity {
 		crInput.setPourcVMA(txtPourcVMA);
 		
 		//Save VMA
-		try{ 
-			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-			SharedPreferences.Editor editor = sharedPref.edit();
-			editor.putString("vma", txtVMA);
-			editor.commit();
-		}catch(Exception ex){
-			helperText.setText(ex.getMessage());
-		}
-		
+		saveVMA(txtVMA);				
 		
 		//Calculate values
 		CalculationResult crOutput = crInput;	
@@ -114,27 +132,27 @@ public class PaceCalculator extends Activity {
 	}
 
 	public void resetAllure(View paramView){
-		((EditText)findViewById(R.id.txtAllure)).setText("");
+		((EditText)findViewById(R.id.pctxtallure)).setText("");
 	}
 
 	public void resetKms(View paramView){
-		((EditText)findViewById(R.id.txtKms)).setText("");
+		((EditText)findViewById(R.id.pctxtkms)).setText("");
 	}
 
 	public void resetTemps(View paramView){
-		((EditText)findViewById(R.id.txtTemps)).setText("");
+		((EditText)findViewById(R.id.pctxttemps)).setText("");
 	}
 
 	public void resetVitesse(View paramView){
-		((EditText)findViewById(R.id.txtVitesse)).setText("");
+		((EditText)findViewById(R.id.pctxtvitesse)).setText("");
 	}
 	
 	public void resetVMA(View paramView){
-		((EditText)findViewById(R.id.txtVMA)).setText("");
+		((EditText)findViewById(R.id.pctxtvma)).setText("");
 	}
 	
 	public void resetPourcVMA(View paramView){
-		((EditText)findViewById(R.id.txtPourcVMA)).setText("");
+		((EditText)findViewById(R.id.pctxtpourcvma)).setText("");
 	}
 	
 	private class MyPagerAdapter extends PagerAdapter {
@@ -148,28 +166,32 @@ public class PaceCalculator extends Activity {
                 LayoutInflater inflater = (LayoutInflater) collection.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
                 int resId = 0;
+                int vmaId = -1;
                 switch (position) {
 	                case 0:
 	                        resId = R.layout.pace_calc;
-	                        
+	                        vmaId = R.id.pctxtvma;
 	                        break;
 	                case 1:
 	                        resId = R.layout.vma;
+	                        vmaId = R.id.vmatxtvma;
 	                        break;
 	                case 2:
 	                        resId = R.layout.specifique;
+	                        vmaId = R.id.spectxtvma;
 	                        break;
 	                case 3:
 	                        resId = R.layout.previsions;
+	                        vmaId = R.id.prevtxtvma;
 	                        break;
                 }
 
                 View view = inflater.inflate(resId, null);
 
                 ((ViewPager) collection).addView(view, 0);
-                if (resId == R.layout.pace_calc){
-                	loadVMACalc();
-                }
+                
+                
+                loadVMA(vmaId);
                 
                 return view;
         }

@@ -9,7 +9,7 @@
         <TableRow>
 
             <Button
-                android:id="@id/btnResetKms"
+                android:id="@id/pcbtnresetkms"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
                 android:text="Kms" />
 
             <EditText
-                android:id="@id/txtKms"
+                android:id="@id/pctxtkms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" />
@@ -32,7 +32,7 @@
         <TableRow>
 
             <Button
-                android:id="@id/btnResetTemps"
+                android:id="@id/pcbtnresettemps"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:text="Temps" />
 
             <EditText
-                android:id="@id/txtTemps"
+                android:id="@id/pctxttemps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -59,7 +59,7 @@
         <TableRow>
 
             <Button
-                android:id="@id/btnResetAllure"
+                android:id="@id/pcbtnresetallure"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:text="Allure" />
 
             <EditText
-                android:id="@id/txtAllure"
+                android:id="@id/pctxtallure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -83,7 +83,7 @@
         <TableRow>
 
             <Button
-                android:id="@id/btnResetVitesse"
+                android:id="@id/pcbtnresetvitesse"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:text="Vitesse" />
 
             <EditText
-                android:id="@id/txtVitesse"
+                android:id="@id/pctxtvitesse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" />
@@ -108,7 +108,7 @@
         <TableRow>
 
             <Button
-                android:id="@+id/btnResetPurcVMA"
+                android:id="@+id/pcbtnresetpourcvma"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                 android:text="% VMA" />
 
             <EditText
-                android:id="@+id/txtPourcVMA"
+                android:id="@+id/pctxtpourcvma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" />
@@ -132,7 +132,7 @@
         <TableRow>
 
             <Button
-                android:id="@+id/btnResetVMA"
+                android:id="@+id/pcbtnresetvma"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 android:text="VMA" />
 
             <EditText
-                android:id="@+id/txtVMA"
+                android:id="@+id/pctxtvma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" />
@@ -160,7 +160,7 @@
         <TableRow>
 
             <Button
-                android:id="@id/backbutton"
+                android:id="@id/pcbackbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="closeAppli"
@@ -173,7 +173,7 @@
                 android:text=" " />
 
             <Button
-                android:id="@id/calcul"
+                android:id="@id/pccalcul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="startCalcul"
@@ -181,7 +181,7 @@
         </TableRow>
 
         <TextView
-            android:id="@+id/helperText"
+            android:id="@+id/pctxthelper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.85"
