@@ -24,7 +24,7 @@ public class CalcHelper {
 	 * @param paramInt
 	 * @return
 	 */
-	private static String toDoubleDecimal(double paramInt){
+	public static String toDoubleDecimal(double paramInt){
 		return df.format(paramInt);
 	}
 	
@@ -119,7 +119,7 @@ public class CalcHelper {
 	 * @param totalSeconds
 	 * @return a human readeable time
 	 */
-	private static String toTime(double totalSeconds){
+	public static String toTime(double totalSeconds){
 		int hours = (int)(totalSeconds / 3600.0D);
 		int minutes = (int)(totalSeconds % 3600) / 60;
 		int seconds = (int)(totalSeconds% 60.0D);

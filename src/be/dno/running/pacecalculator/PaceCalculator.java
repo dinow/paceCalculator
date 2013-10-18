@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class PaceCalculator extends Activity {
 
+	private String activeVMA;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,7 +42,8 @@ public class PaceCalculator extends Activity {
 	private String getVMA(){
 		try{ 
 			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-			return sharedPref.getString("vma", "");
+			activeVMA = sharedPref.getString("vma", "");
+			return activeVMA;
 		}catch(Exception ex){
 			return "";
 		}
@@ -51,9 +55,10 @@ public class PaceCalculator extends Activity {
 	 */
 	private void saveVMA(String vma){
 		try{ 
+			activeVMA = vma;
 			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = sharedPref.edit();
-			editor.putString("vma", vma);
+			editor.putString("vma", activeVMA);
 			editor.commit();
 		}catch(Exception ex){
 			
@@ -92,7 +97,6 @@ public class PaceCalculator extends Activity {
 		EditText etVitesse = 	(EditText)findViewById(R.id.pctxtvitesse);
 		EditText etPourcVMA = 	(EditText)findViewById(R.id.pctxtpourcvma);
 		EditText etVMA = 		(EditText)findViewById(R.id.pctxtvma);
-		
 		TextView helperText = 	(TextView)findViewById(R.id.pctxthelper);
 		
 		//Get values
@@ -103,6 +107,9 @@ public class PaceCalculator extends Activity {
 		String txtPourcVMA = 	etPourcVMA.getText().toString();
 		String txtVMA = 		etVMA.getText().toString();
 		
+		//Save VMA
+		saveVMA(txtVMA);
+		
 		//Store values in container class
 		CalculationResult crInput = new CalculationResult();
 		crInput.setAllure(txtAllure);
@@ -112,8 +119,7 @@ public class PaceCalculator extends Activity {
 		crInput.setVma(txtVMA);
 		crInput.setPourcVMA(txtPourcVMA);
 		
-		//Save VMA
-		saveVMA(txtVMA);				
+						
 		
 		//Calculate values
 		CalculationResult crOutput = crInput;	
@@ -154,6 +160,65 @@ public class PaceCalculator extends Activity {
 	public void resetPourcVMA(View paramView){
 		((EditText)findViewById(R.id.pctxtpourcvma)).setText("");
 	}
+
+	public void startCalculVMA(View paramView){
+		EditText etVMA = (EditText)findViewById(R.id.vmatxtvma);
+		
+		
+		TextView[] etPerc = {(TextView)findViewById(R.id.vmapercentage1),(TextView)findViewById(R.id.vmapercentage2)};
+		
+		TextView[] etTime = {(TextView)findViewById(R.id.vmatemps1),(TextView)findViewById(R.id.vmatemps2)};
+		
+		TextView[] etSpeed = {(TextView)findViewById(R.id.vmaspeed1),(TextView)findViewById(R.id.vmaspeed2)};
+		
+		TextView[] etPace = {(TextView)findViewById(R.id.vmapace1),(TextView)findViewById(R.id.vmapace2)};
+	
+		String vma = etVMA.getText().toString();
+		saveVMA(vma);
+		
+		if (!vma.isEmpty()){
+			Spinner vmadistdropdown = (Spinner) findViewById(R.id.vmadistdropdown);
+			String selectedVMA = vmadistdropdown.getSelectedItem().toString();
+			Integer[] percentages = VMAPercentagesMap.getPercentage(selectedVMA);
+			
+			Double lVMA = Double.parseDouble(vma);
+			int i = 0;
+			for (Integer percentage : percentages){
+				double speed = (lVMA*percentage)/100;
+				double secondsForOneKilo = 3600 / speed;
+				double secondsForDistance = 0l;
+				String secondsForDistanceStr = "";
+				String minperkm = CalcHelper.toTime(secondsForOneKilo);
+				
+				if (selectedVMA.equals("30/30")){
+					secondsForDistance = (speed*1000/3600)*30;
+					secondsForDistanceStr = CalcHelper.toDoubleDecimal(secondsForDistance);
+				}else if (selectedVMA.equals("Endurance")){
+					Integer currentDistance = 1;
+					secondsForDistance = currentDistance * (3600/speed);
+					secondsForDistanceStr = CalcHelper.toTime(secondsForDistance);
+				}else{
+					Double currentDistance = Double.parseDouble(selectedVMA)/1000;
+					secondsForDistance = currentDistance * (3600/speed);
+					secondsForDistanceStr = CalcHelper.toTime(secondsForDistance);
+				}
+				
+				etPerc[i].setText(percentage+"%");
+				etTime[i].setText(secondsForDistanceStr+"");
+				etSpeed[i].setText(CalcHelper.toDoubleDecimal(speed));
+				etPace[i].setText(minperkm);
+				i++;	
+			}
+			
+			if (i == 1){
+				etPerc[i].setText("");
+				etTime[i].setText("");
+				etSpeed[i].setText("");
+				etPace[i].setText("");
+			}
+		}
+		
+	}
 	
 	private class MyPagerAdapter extends PagerAdapter {
 
@@ -187,12 +252,8 @@ public class PaceCalculator extends Activity {
                 }
 
                 View view = inflater.inflate(resId, null);
-
                 ((ViewPager) collection).addView(view, 0);
-                
-                
-                loadVMA(vmaId);
-                
+                loadVMA(vmaId);   
                 return view;
         }
 

@@ -56,15 +56,17 @@
                 android:layout_column="1"
                 android:text="" />
            <TextView
+                android:id="@+id/vmapercentage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx%" />
+                 />
            <TextView
+                android:id="@+id/vmapercentage2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx%" />
+                 />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
            <TextView
@@ -76,12 +78,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/vmatemps1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/vmatemps2" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
            <TextView
@@ -93,12 +95,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx" />
+                android:id="@+id/vmaspeed1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx" />
+                android:id="@+id/vmaspeed2" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
            <TextView
@@ -110,12 +112,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/vmapace1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/vmapace2" />
        </TableRow>
        
        <View
@@ -130,6 +132,19 @@
                 android:layout_height="wrap_content"
                 android:onClick="closeAppli"
                 android:text="Back" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text=" " />
+
+            <Button
+                android:id="@+id/vmacalcul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startCalculVMA"
+                android:text="Calcul" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>

@@ -6,13 +6,13 @@
   
    <string-array name="vma_distances">
         <item>30/30</item>
-        <item>200m</item>
-        <item>300m</item>
-        <item>400m</item>
-        <item>500m</item>
-        <item>600m</item>
-        <item>800m</item>
-        <item>1000m</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>800</item>
+        <item>1000</item>
         <item>Endurance</item>
     </string-array>
     
