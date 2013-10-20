@@ -28,20 +28,5 @@
         <item>21100</item>
         <item>42195</item>
     </string-array>
-    
-    <string-array name="previsions_distances">
-        <item>800</item>
-        <item>1000</item>
-        <item>1500</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>20000</item>
-        <item>21100</item>
-        <item>42195</item>
-        <item>Endurance</item>
-    </string-array>
-    
 
 </resources>

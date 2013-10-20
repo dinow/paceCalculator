@@ -9,7 +9,6 @@ package be.dno.running.pacecalculator;
 
 public final class R {
     public static final class array {
-        public static final int previsions_distances=0x7f070002;
         public static final int specifique_distances=0x7f070001;
         public static final int vma_distances=0x7f070000;
     }
@@ -29,7 +28,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f050024;
+        public static final int action_settings=0x7f05002a;
         public static final int mypanelpager=0x7f05000a;
         public static final int pcbackbutton=0x7f050000;
         public static final int pcbtnresetallure=0x7f050008;
@@ -46,33 +45,38 @@ public final class R {
         public static final int pctxttemps=0x7f050004;
         public static final int pctxtvitesse=0x7f050007;
         public static final int pctxtvma=0x7f05000e;
-        public static final int prevbackbutton=0x7f050013;
-        public static final int prevbtnresetvma=0x7f050010;
-        public static final int prevtxtvma=0x7f050011;
-        public static final int specbackbutton=0x7f050016;
-        public static final int specbtnresetvma=0x7f050014;
+        public static final int specbackbutton=0x7f05001b;
+        public static final int specbtnresetvma=0x7f050010;
+        public static final int speccalcul=0x7f05001c;
         public static final int specdistdropdown=0x7f050012;
-        public static final int spectxtvma=0x7f050015;
-        public static final int vmabackbutton=0x7f050022;
-        public static final int vmabtnresetvma=0x7f050017;
-        public static final int vmacalcul=0x7f050023;
-        public static final int vmadistdropdown=0x7f050019;
-        public static final int vmapace1=0x7f050020;
-        public static final int vmapace2=0x7f050021;
-        public static final int vmapercentage1=0x7f05001a;
-        public static final int vmapercentage2=0x7f05001b;
-        public static final int vmaspeed1=0x7f05001e;
-        public static final int vmaspeed2=0x7f05001f;
-        public static final int vmatemps1=0x7f05001c;
-        public static final int vmatemps2=0x7f05001d;
-        public static final int vmatxtvma=0x7f050018;
+        public static final int specpace1=0x7f050019;
+        public static final int specpace2=0x7f05001a;
+        public static final int specpercentage1=0x7f050013;
+        public static final int specpercentage2=0x7f050014;
+        public static final int specspeed1=0x7f050017;
+        public static final int specspeed2=0x7f050018;
+        public static final int spectemps1=0x7f050015;
+        public static final int spectemps2=0x7f050016;
+        public static final int spectxtvma=0x7f050011;
+        public static final int vmabackbutton=0x7f050028;
+        public static final int vmabtnresetvma=0x7f05001d;
+        public static final int vmacalcul=0x7f050029;
+        public static final int vmadistdropdown=0x7f05001f;
+        public static final int vmapace1=0x7f050026;
+        public static final int vmapace2=0x7f050027;
+        public static final int vmapercentage1=0x7f050020;
+        public static final int vmapercentage2=0x7f050021;
+        public static final int vmaspeed1=0x7f050024;
+        public static final int vmaspeed2=0x7f050025;
+        public static final int vmatemps1=0x7f050022;
+        public static final int vmatemps2=0x7f050023;
+        public static final int vmatxtvma=0x7f05001e;
     }
     public static final class layout {
         public static final int activity_pace_calculator=0x7f030000;
         public static final int pace_calc=0x7f030001;
-        public static final int previsions=0x7f030002;
-        public static final int specifique=0x7f030003;
-        public static final int vma=0x7f030004;
+        public static final int specifique=0x7f030002;
+        public static final int vma=0x7f030003;
     }
     public static final class menu {
         public static final int pace_calculator=0x7f090000;

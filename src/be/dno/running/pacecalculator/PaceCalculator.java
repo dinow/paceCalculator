@@ -160,6 +160,56 @@ public class PaceCalculator extends Activity {
 	public void resetPourcVMA(View paramView){
 		((EditText)findViewById(R.id.pctxtpourcvma)).setText("");
 	}
+	
+	public void startCalculSpecifique(View paramView){
+		EditText etVMA = (EditText)findViewById(R.id.spectxtvma);
+		
+		
+		TextView[] etPerc = {(TextView)findViewById(R.id.specpercentage1),(TextView)findViewById(R.id.specpercentage2)};
+		
+		TextView[] etTime = {(TextView)findViewById(R.id.spectemps1),(TextView)findViewById(R.id.spectemps2)};
+		
+		TextView[] etSpeed = {(TextView)findViewById(R.id.specspeed1),(TextView)findViewById(R.id.specspeed2)};
+		
+		TextView[] etPace = {(TextView)findViewById(R.id.specpace1),(TextView)findViewById(R.id.specpace2)};
+	
+		String vma = etVMA.getText().toString();
+		saveVMA(vma);
+		
+		if (!vma.isEmpty()){
+			Spinner specdistdropdown = (Spinner) findViewById(R.id.specdistdropdown);
+			String selectedVMA = specdistdropdown.getSelectedItem().toString();
+			Integer[] percentages = SpecificPercentagesMap.getPercentage(selectedVMA);
+			
+			Double lVMA = CalcHelper.toDouble(vma);
+			int i = 0;
+			for (Integer percentage : percentages){
+				double speed = (lVMA*percentage)/100;
+				double secondsForOneKilo = 3600 / speed;
+				double secondsForDistance = 0l;
+				String secondsForDistanceStr = "";
+				String minperkm = CalcHelper.toTime(secondsForOneKilo);
+
+				Double currentDistance = CalcHelper.toDouble(selectedVMA)/1000;
+				secondsForDistance = currentDistance * (3600/speed);
+				secondsForDistanceStr = CalcHelper.toTime(secondsForDistance);
+
+				etPerc[i].setText(percentage+"%");
+				etTime[i].setText(secondsForDistanceStr+"");
+				etSpeed[i].setText(CalcHelper.toDoubleDecimal(speed));
+				etPace[i].setText(minperkm);
+				i++;	
+			}
+			
+			if (i == 1){
+				etPerc[i].setText("");
+				etTime[i].setText("");
+				etSpeed[i].setText("");
+				etPace[i].setText("");
+			}
+		}
+		
+	}
 
 	public void startCalculVMA(View paramView){
 		EditText etVMA = (EditText)findViewById(R.id.vmatxtvma);
@@ -181,7 +231,7 @@ public class PaceCalculator extends Activity {
 			String selectedVMA = vmadistdropdown.getSelectedItem().toString();
 			Integer[] percentages = VMAPercentagesMap.getPercentage(selectedVMA);
 			
-			Double lVMA = Double.parseDouble(vma);
+			Double lVMA = CalcHelper.toDouble(vma);
 			int i = 0;
 			for (Integer percentage : percentages){
 				double speed = (lVMA*percentage)/100;
@@ -198,7 +248,7 @@ public class PaceCalculator extends Activity {
 					secondsForDistance = currentDistance * (3600/speed);
 					secondsForDistanceStr = CalcHelper.toTime(secondsForDistance);
 				}else{
-					Double currentDistance = Double.parseDouble(selectedVMA)/1000;
+					Double currentDistance = CalcHelper.toDouble(selectedVMA)/1000;
 					secondsForDistance = currentDistance * (3600/speed);
 					secondsForDistanceStr = CalcHelper.toTime(secondsForDistance);
 				}
@@ -223,7 +273,7 @@ public class PaceCalculator extends Activity {
 	private class MyPagerAdapter extends PagerAdapter {
 
         public int getCount() {
-                return 4;
+                return 3;
         }
 
         public Object instantiateItem(View collection, int position) {
@@ -244,10 +294,6 @@ public class PaceCalculator extends Activity {
 	                case 2:
 	                        resId = R.layout.specifique;
 	                        vmaId = R.id.spectxtvma;
-	                        break;
-	                case 3:
-	                        resId = R.layout.previsions;
-	                        vmaId = R.id.prevtxtvma;
 	                        break;
                 }
 

@@ -7,9 +7,8 @@
 	<TableRow android:layout_width="fill_parent" >
             <TextView
                 android:layout_span="3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:text="Specifique" />
        </TableRow>
        <TableRow android:layout_width="fill_parent" >
@@ -25,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
+                
                 android:text="VMA" />
 
             <EditText
@@ -33,7 +32,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal" 
-                android:width="100px"/>
+                android:ems="5"
+               />
         </TableRow>
         
        <TableRow android:layout_width="fill_parent">
@@ -45,72 +45,75 @@
 	        android:entries="@array/specifique_distances" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+          
            <TextView
+               android:ems="5"
+                android:id="@+id/specpercentage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
+                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="" />
            <TextView
+               android:ems="5"
+                android:id="@+id/specpercentage2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx%" />
-           <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx%" />
+                 />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+           
+           <TextView
+               android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spectemps1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:text="Temps" />
            <TextView
+               android:ems="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx:xx" />
-           <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/spectemps2" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+           
+           <TextView
+               android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/specspeed1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
                 android:text="Km/h" />
            <TextView
+               android:ems="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx" />
-           <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx" />
+                android:id="@+id/specspeed2" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+           
+           <TextView
+                android:ems="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/specpace1" />
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
                 android:text="min/km" />
            <TextView
+                android:ems="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx:xx" />
-           <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:text="xx:xx" />
+                android:id="@+id/specpace2" />
        </TableRow>
        <View
             android:layout_height="2.0dip"
@@ -124,6 +127,19 @@
                 android:layout_height="wrap_content"
                 android:onClick="closeAppli"
                 android:text="Back" />
+            
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" " />
+
+            <Button
+                android:id="@+id/speccalcul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="startCalculSpecifique"
+                android:text="Calcul" />
         </TableRow>
+        
     </TableLayout>
 </RelativeLayout>

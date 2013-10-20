@@ -28,7 +28,7 @@ public class CalcHelper {
 		return df.format(paramInt);
 	}
 	
-	private static Double toDouble(String input){
+	public static Double toDouble(String input){
 		try {
 			return df.parse(input).doubleValue();
 		} catch (ParseException e) {
