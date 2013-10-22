@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="closeAppli"
-                android:text="Back" />
+                android:text="Exit" />
 
             <TextView
                 android:layout_width="wrap_content"
