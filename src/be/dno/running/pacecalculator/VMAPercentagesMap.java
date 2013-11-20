@@ -14,7 +14,7 @@ public class VMAPercentagesMap {
 		map.put("500", new Integer[]{95});
 		map.put("600", new Integer[]{95});
 		map.put("800", new Integer[]{95});
-		map.put("1000", new Integer[]{95});
+		map.put("1000", new Integer[]{95,90});
 		map.put("Endurance", new Integer[]{65,69});
 	}
 

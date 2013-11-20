@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">paceCalculator</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_calculator">Calculator</string>
+    <string name="action_specific">Specific</string>
+    <string name="action_vma">VMA</string>
   
    <string-array name="vma_distances">
         <item>30/30</item>

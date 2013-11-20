@@ -37,6 +37,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
+                android:digits="0123456789,."
                 android:ems="5"
                 />
         </TableRow>
@@ -50,6 +51,10 @@
 	        android:entries="@array/vma_distances" />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
            
            <TextView
                 android:id="@+id/vmapercentage1"
@@ -58,10 +63,6 @@
                 android:ems="5"
                  />
            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
-           <TextView
                 android:id="@+id/vmapercentage2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,16 +70,17 @@
                  />
        </TableRow>
        <TableRow android:layout_width="fill_parent">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Temps" />
           
            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="5"
                 android:id="@+id/vmatemps1" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Temps" />
 
            <TextView
                android:id="@+id/vmatemps2"
@@ -90,15 +92,15 @@
        <TableRow android:layout_width="fill_parent">
 
            <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Km/h" />
+
+           <TextView
                android:id="@+id/vmaspeed1"
                android:layout_width="wrap_content"
                android:ems="5"
                android:layout_height="wrap_content" />
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Km/h" />
 
            <TextView
                android:id="@+id/vmaspeed2"
@@ -109,16 +111,17 @@
        </TableRow>
 
        <TableRow android:layout_width="fill_parent">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="min/km" />
           
            <TextView
                android:ems="5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vmapace1" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="min/km" />
            <TextView
                android:ems="5"
                 android:layout_width="wrap_content"

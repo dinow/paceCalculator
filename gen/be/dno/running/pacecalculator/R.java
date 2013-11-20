@@ -28,7 +28,9 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f050028;
+        public static final int action_calculator=0x7f050028;
+        public static final int action_specific=0x7f050029;
+        public static final int action_vma=0x7f05002a;
         public static final int mypanelpager=0x7f05000a;
         public static final int pcbackbutton=0x7f050000;
         public static final int pcbtnresetallure=0x7f050008;
@@ -80,7 +82,9 @@ public final class R {
         public static final int pace_calculator=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
+        public static final int action_calculator=0x7f060001;
+        public static final int action_specific=0x7f060002;
+        public static final int action_vma=0x7f060003;
         public static final int app_name=0x7f060000;
     }
     public static final class style {

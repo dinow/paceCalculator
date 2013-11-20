@@ -4,15 +4,17 @@ package be.dno.running.pacecalculator;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
+import java.util.Locale;
 
-public class CalcHelper {
-	private static DecimalFormat df = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance());
+public class CalcHelper {	
+	private static DecimalFormat df = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+	
 	/**
 	 * 
 	 * @param paramInt
 	 * @return
 	 */
-	private static String toDoubleDigit(int paramInt){
+	public static String toDoubleDigit(int paramInt){
 		if (Math.abs(paramInt) < 10){
 			return ("0" + paramInt);
 		}
@@ -27,21 +29,21 @@ public class CalcHelper {
 	public static String toDoubleDecimal(double paramInt){
 		return df.format(paramInt);
 	}
-	
-	public static Double toDouble(String input){
-		try {
-			return df.parse(input).doubleValue();
-		} catch (ParseException e) {
-			return Double.valueOf(input);
+
+	public static Double toDouble(String input) throws Exception{
+		if (input.contains(",")){
+			input = input.replaceAll(",",".");
 		}
+		return df.parse(input).doubleValue();
 	}
 
 	/**
 	 * 
 	 * @param crInput
 	 * @return a filled {@link CalculationResult} object
+	 * @throws ParseException 
 	 */
-	public static CalculationResult calculate(CalculationResult crInput){
+	public static CalculationResult calculate(CalculationResult crInput) throws Exception{
 		CalculationResult crOutput = new CalculationResult();
 		//Check if vma and % vma is filled in
 		if(!crInput.getVma().isEmpty()){

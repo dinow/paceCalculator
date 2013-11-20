@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -19,16 +19,16 @@ import android.widget.TextView;
 public class PaceCalculator extends Activity {
 
 	private String activeVMA;
-
+	private ViewPager myPager;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pace_calculator);
 		MyPagerAdapter adapter = new MyPagerAdapter();
-		ViewPager myPager = (ViewPager) findViewById(R.id.mypanelpager);
+		myPager = (ViewPager) findViewById(R.id.mypanelpager);
 		myPager.setAdapter(adapter);
 		myPager.setCurrentItem(0);
-
 	}
 
 
@@ -36,17 +36,39 @@ public class PaceCalculator extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		addListener(R.id.specdistdropdown);
-		addListener(R.id.vmadistdropdown);
+		addListener(R.id.specdistdropdown, R.id.spectxtvma);
+		addListener(R.id.vmadistdropdown, R.id.vmatxtvma);
 	}
 
 
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_calculator:
+			myPager.setCurrentItem(0);
+			return true;
+		case R.id.action_specific:
+			myPager.setCurrentItem(2);
+			return true;
+		case R.id.action_vma:
+			myPager.setCurrentItem(1);
+			return true;
+		default:
+			myPager.setCurrentItem(0);
+			return true;
+		}
+	}
+
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {		
 		getMenuInflater().inflate(R.menu.pace_calculator, menu);
 		return true;
 	}
+	
+	
 
 
 	/**
@@ -56,9 +78,10 @@ public class PaceCalculator extends Activity {
 	private String getVMA(){
 		try{ 
 			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-			activeVMA = sharedPref.getString("vma", "");
+			activeVMA = sharedPref.getString("vmacomma", "");
 			return activeVMA;
 		}catch(Exception ex){
+			System.err.println(ex.getMessage());
 			return "";
 		}
 	}
@@ -72,10 +95,10 @@ public class PaceCalculator extends Activity {
 			activeVMA = vma;
 			SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = sharedPref.edit();
-			editor.putString("vma", activeVMA);
+			editor.putString("vmacomma", activeVMA);
 			editor.commit();
 		}catch(Exception ex){
-
+			System.err.println(ex.getMessage());
 		}
 	}
 
@@ -90,12 +113,14 @@ public class PaceCalculator extends Activity {
 	}
 
 
-	private void addListener(final int finalid){
+	private void addListener(final int finalid, final int vmaid){
 		Spinner spinner = (Spinner) findViewById(finalid);
 		if (spinner != null){
 			spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 				@Override
 				public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+					EditText etVMA = (EditText)findViewById(vmaid);
+					saveVMA(etVMA.getText().toString());
 					if (finalid == R.id.vmadistdropdown){
 						startCalculVMA();
 					}else{
@@ -354,8 +379,8 @@ public class PaceCalculator extends Activity {
 
 		@Override
 		public void finishUpdate(View arg0) {
-			addListener(R.id.specdistdropdown);
-			addListener(R.id.vmadistdropdown);
+			addListener(R.id.specdistdropdown, R.id.spectxtvma);
+			addListener(R.id.vmadistdropdown, R.id.vmatxtvma);
 		}
 
 		@Override

@@ -26,7 +26,8 @@
                 android:id="@id/pctxtkms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:digits="0123456789,." />
         </TableRow>
 
         <TableRow>
@@ -94,13 +95,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:inputType="numberDecimal"
                 android:text="Vitesse" />
 
             <EditText
                 android:id="@id/pctxtvitesse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:digits="0123456789,."
                 android:inputType="numberDecimal" />
 
         </TableRow>
@@ -119,13 +120,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:inputType="numberDecimal"
                 android:text="% VMA" />
 
             <EditText
                 android:id="@+id/pctxtpourcvma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:digits="0123456789,."
                 android:inputType="numberDecimal" />
         </TableRow>
 
@@ -150,7 +151,8 @@
                 android:id="@+id/pctxtvma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:digits="0123456789,." />
         </TableRow>
 
         <View

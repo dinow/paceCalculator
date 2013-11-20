@@ -5,7 +5,7 @@ public class CalculationResult {
 	private String allure = "";
 	private String temps = "";
 	private String vitesse = "";
-	private String vma;
+	private String vma; 
 	private String pourcVMA;
 	public String getKms() {
 		return kms;
